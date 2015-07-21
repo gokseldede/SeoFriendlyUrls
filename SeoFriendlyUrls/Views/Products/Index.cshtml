@@ -1,0 +1,23 @@
+﻿@model IEnumerable<SeoFriendlyUrls.Models.Product>
+
+<h2>Product List</h2>
+
+<table >
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Image</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var product in Model)
+    {
+        <tr>
+            <td><a href="@Url.Action("Details", "Products", new { id = @product.GenerateSlug() })">@product.Name</a></td>
+            <td>@product.Price</td>
+            <td><img src="http://placehold.it/100x100"/></td>
+        </tr>
+    }
+    </tbody>
+</table>
